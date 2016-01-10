@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+
+<!-- For more go to: http://ant.apache.org/manual/index.html and click on "Overview". -->
+<project name="HelloAnt" default="hello">
+	<target name="hello">
+		<echo message="Hello Ant World" />
+	</target>
+</project>
