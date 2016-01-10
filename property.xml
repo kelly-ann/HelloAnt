@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="property file example" default="all" basedir=".">
+	<property file="build.properties" />
+	
+<!-- Print verbose Ant build output to a .log file  -->
+	<record name="build.log" loglevel="verbose" action="start" />
+	
+	<target name="all" depends="loadAndPrintProps,createPropsFile,conditionOps" />
+
+	<target name="loadAndPrintProps">
+		<echo>Project Name: ${project.name}</echo>
+		<echo message="Source Dir: ${src.dir}" />
+		<echo>Build Dir: ${build.dir}</echo>
+		<echo message="Classes Dir: ${classes.dir}" />
+		<echo message="Etc Dir: ${etc.dir}" />
+	</target>
+	
+	<target name="createPropsFile">
+		<propertyfile file="dynamic.properties">
+			<entry key="date" type="date" value="now" />
+		<!-- this says get the current buildnumber and increment by 1, if there is no number start at 0  -->
+			<entry key="buildnumber" type="int" default="0" operation="+" /> 
+		</propertyfile>
+	</target>
+	
+	<target name="OnDosOrUnix">
+	<!-- sets the property to true/false "notMac" based on whether the os is windows, unix, or mac -->
+	<condition property="notMac">
+		<and>
+			<os family="dos" />
+			<or>
+				<os family="unix" />
+			</or>
+			<not>
+				<os family="mac" />
+			</not>
+		</and>
+	</condition>
+	</target>
+	
+	<!-- displays a message if the "notMac" property is set to true  -->
+	<target name="conditionOps" if="notMac" depends="OnDosOrUnix">
+		<echo message="notMac property equals: ${notMac}" />
+	</target>
+</project>

@@ -1,0 +1,27 @@
+Build sequence for target(s) `all' is [loadAndPrintProps, createPropsFile, OnDosOrUnix, conditionOps, all]
+Complete build sequence is [loadAndPrintProps, createPropsFile, OnDosOrUnix, conditionOps, all, ]
+
+loadAndPrintProps:
+     [echo] Project Name: Hello Ant !!!!
+     [echo] Source Dir: src
+     [echo] Build Dir: build
+     [echo] Classes Dir: build/classes
+     [echo] Etc Dir: etc
+loadAndPrintProps:  duration 0 seconds
+
+createPropsFile:
+[propertyfile] Updating property file: C:\Users\Kelly-Ann\workspace\HelloAnt\dynamic.properties
+createPropsFile:  duration 0 seconds
+
+OnDosOrUnix:
+OnDosOrUnix:  duration 0 seconds
+
+conditionOps:
+Skipped because property 'boom' not set.
+conditionOps:  duration 0 seconds
+
+all:
+all:  duration 0 seconds
+BUILD SUCCESSFUL
+
+BUILD SUCCESSFUL
